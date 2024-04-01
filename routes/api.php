@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\kompetisiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +35,12 @@ Route::prefix('profiles')->group(function () {
     Route::get('/{id}', [ProfileController::class, 'show']); // Route untuk menampilkan detail profil berdasarkan ID
     Route::put('/update/{id}', [ProfileController::class, 'update']); // Route untuk memperbarui profil berdasarkan ID
     Route::delete('/delete/{id}', [ProfileController::class, 'delete']); // Route untuk menghapus profil berdasarkan ID
+});
+
+Route::prefix('kompetisi')->group(function () {
+    Route::get('/', [KompetisiController::class, 'getall']);
+    Route::post('/tambah', [KompetisiController::class, 'tambah']);
+    Route::get('/{id}', [KompetisiController::class, 'show']);
+    Route::put('/update/{id}', [KompetisiController::class, 'update']);
+    Route::delete('/hapus/{id}', [KompetisiController::class, 'hapus']);
 });
