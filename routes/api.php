@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\kompetisiController;
+use App\Http\Controllers\TeamController;
 
 
 /*
@@ -43,4 +44,12 @@ Route::prefix('kompetisi')->group(function () {
     Route::get('/{id}', [KompetisiController::class, 'show']);
     Route::put('/update/{id}', [KompetisiController::class, 'update']);
     Route::delete('/hapus/{id}', [KompetisiController::class, 'hapus']);
+});
+
+Route::prefix('team')->group(function () {
+    Route::get('/', [TeamController::class, 'index']);
+    Route::post('/tambah', [TeamController::class, 'store']);
+    Route::get('/{id}', [TeamController::class, 'show']);
+    Route::put('/update/{id}', [TeamController::class, 'update']);
+    Route::delete('/hapus/{id}', [TeamController::class, 'destroy']);
 });
