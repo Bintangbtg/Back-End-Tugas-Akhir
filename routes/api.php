@@ -6,6 +6,8 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\kompetisiController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\API\ProccesPaymentController;
+use App\Http\Controllers\VerifyPaymentController;
 
 
 /*
@@ -53,3 +55,6 @@ Route::prefix('team')->group(function () {
     Route::put('/update/{id}', [TeamController::class, 'update']);
     Route::delete('/hapus/{id}', [TeamController::class, 'destroy']);
 });
+
+Route::post('procces-payment',[ProccesPaymentController::class, 'invoke']);
+Route::post('verify-payment', [VerifyPaymentController::class, 'index']);
