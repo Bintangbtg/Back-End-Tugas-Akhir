@@ -8,6 +8,7 @@ use App\Http\Controllers\kompetisiController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\API\ProccesPaymentController;
 use App\Http\Controllers\VerifyPaymentController;
+use App\Http\Controllers\DaftarKompetisiController;
 
 
 /*
@@ -58,3 +59,11 @@ Route::prefix('team')->group(function () {
 
 Route::post('procces-payment',[ProccesPaymentController::class, 'invoke']);
 Route::post('verify-payment', [VerifyPaymentController::class, 'index']);
+
+Route::prefix('daftar')->group(function () {
+    Route::get('/', [DaftarKompetisiController::class, 'index']);
+    Route::post('/tambah', [DaftarKompetisiController::class, 'store']);
+    Route::get('/{id}', [DaftarKompetisiController::class, 'show']);
+    Route::put('/update/{id}', [DaftarKompetisiController::class, 'update']);
+    Route::delete('/hapus/{id}', [DaftarKompetisiController::class, 'destroy']);
+});
