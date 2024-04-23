@@ -30,7 +30,7 @@ class ProccesPaymentController extends Controller
         $resp = Http::withHeaders([
             'Accept' => 'application/json',
             'Content-Type' => 'application/json'
-        ])->withBasicAuth('password','username')
+        ])->withBasicAuth('SB-Mid-server-1-7UNhjHoogom6ZFREWAal65','SB-Mid-client-Jyw2cbkdoujTwNb9')
         ->post('https://api.sandbox.midtrans.com/v2/charge', [
             'payment_type' => 'gopay',
             'transaction_details' => [
