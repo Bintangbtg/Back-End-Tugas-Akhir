@@ -9,6 +9,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\API\ProccesPaymentController;
 use App\Http\Controllers\VerifyPaymentController;
 use App\Http\Controllers\DaftarKompetisiController;
+use App\Http\Controllers\FeedbackController;
 
 
 /*
@@ -67,3 +68,9 @@ Route::prefix('daftar')->group(function () {
     Route::put('/update/{id}', [DaftarKompetisiController::class, 'update']);
     Route::delete('/hapus/{id}', [DaftarKompetisiController::class, 'destroy']);
 });
+
+Route::get('/feedback', [FeedbackController::class, 'index']);
+Route::post('/createfeedback', [FeedbackController::class, 'store']);
+Route::get('/feedback/{id}', [FeedbackController::class, 'show']);
+Route::put('/feedback/{id}', [FeedbackController::class, 'update']);
+Route::delete('/feedback/{id}', [FeedbackController::class, 'destroy']);
