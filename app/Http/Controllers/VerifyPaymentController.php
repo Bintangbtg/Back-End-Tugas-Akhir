@@ -17,7 +17,7 @@ class VerifyPaymentController extends Controller
         $statusCode = $request->status_code;
         $grossAmount = $request->gross_amount;
 
-        $signature = hash('sha512', $orderId.$statusCode.$grossAmount.'password');
+        $signature = hash('sha512', $orderId.$statusCode.$grossAmount.'SB-Mid-server-1-7UNhjHoogom6ZFREWAal65');
 
         Log::info('incoming-notification', $request->all()); // Sesuaikan dengan cara memanggil Log
 
