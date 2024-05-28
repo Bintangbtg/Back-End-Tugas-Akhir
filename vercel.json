@@ -29,7 +29,6 @@
         "DB_HOST": "roundhouse.proxy.rlwy.net",
         "DB_PORT": "51077",
         "DB_DATABASE": "railway",
-        "DB_USERNAME": "root",
-        "DB_PASSWORD" : "hQbQTwCFJdKuTGWbpdPoDtdrQUQoYdlM"
+        "DB_USERNAME": "root"
     }
 }
