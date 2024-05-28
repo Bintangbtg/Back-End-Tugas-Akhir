@@ -8,7 +8,7 @@ use App\Http\Controllers\kompetisiController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\API\ProccesPaymentController;
 use App\Http\Controllers\VerifyPaymentController;
-use App\Http\Controllers\DaftarKompetisiController;
+use App\Http\Controllers\DaftarkompetisiController;
 use App\Http\Controllers\FeedbackController;
 
 
@@ -43,11 +43,11 @@ Route::prefix('profiles')->group(function () {
 });
 
 Route::prefix('kompetisi')->group(function () {
-    Route::get('/', [KompetisiController::class, 'getall']);
-    Route::post('/tambah', [KompetisiController::class, 'tambah']);
-    Route::get('/{id}', [KompetisiController::class, 'show']);
-    Route::put('/update/{id}', [KompetisiController::class, 'update']);
-    Route::delete('/hapus/{id}', [KompetisiController::class, 'hapus']);
+    Route::get('/', [kompetisiController::class, 'getall']);
+    Route::post('/tambah', [kompetisiController::class, 'tambah']);
+    Route::get('/{id}', [kompetisiController::class, 'show']);
+    Route::put('/update/{id}', [kompetisiController::class, 'update']);
+    Route::delete('/hapus/{id}', [kompetisiController::class, 'hapus']);
 });
 
 Route::prefix('team')->group(function () {
@@ -62,12 +62,14 @@ Route::post('procces-payment',[ProccesPaymentController::class, 'invoke']);
 Route::post('verify-payment', [VerifyPaymentController::class, 'index']);
 
 Route::prefix('daftar')->group(function () {
-    Route::get('/', [DaftarKompetisiController::class, 'index']);
-    Route::post('/tambah', [DaftarKompetisiController::class, 'store']);
-    Route::get('/{id}', [DaftarKompetisiController::class, 'show']);
-    Route::put('/update/{id}', [DaftarKompetisiController::class, 'update']);
-    Route::delete('/hapus/{id}', [DaftarKompetisiController::class, 'destroy']);
+    Route::get('/', [DaftarkompetisiController::class, 'index']);
+    Route::post('/tambah', [DaftarkompetisiController::class, 'store']);
+    Route::get('/{id}', [DaftarkompetisiController::class, 'show']);
+    Route::put('/update/{id}', [DaftarkompetisiController::class, 'update']);
+    Route::delete('/hapus/{id}', [DaftarkompetisiController::class, 'destroy']);
 });
+
+Route::post('/tambahdaftar', [DaftarkompetisiController::class, 'store']);
 
 Route::get('/feedback', [FeedbackController::class, 'index']);
 Route::post('/createfeedback', [FeedbackController::class, 'store']);

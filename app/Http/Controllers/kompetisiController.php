@@ -16,13 +16,17 @@ class kompetisiController extends Controller
 
     public function tambah(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'nama_kompetisi' => 'required',
             'deskripsi' => 'required',
             'kategori' => 'required|in:desain,programming,robotic,CTF',
             'biaya_pendaftaran' => 'required|numeric',
             'foto_poster' => 'nullable|string',
         ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 422);
+        }
 
         $kompetisi = Kompetisi::create($request->all());
 

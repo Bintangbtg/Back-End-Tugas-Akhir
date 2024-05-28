@@ -14,7 +14,8 @@ class ProccesPaymentController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'biaya_pendaftaran' => 'required'
+            'biaya_pendaftaran' => 'required',
+            'id_pendaftaran' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -23,7 +24,8 @@ class ProccesPaymentController extends Controller
 
         $transaction = Transaction::create([
             'name' => $request->name,
-            'biaya_pendaftaran' => $request->biaya_pendaftaran, // Perbaikan typo di sini
+            'biaya_pendaftaran' => $request->biaya_pendaftaran, 
+            'id_pendaftaran'=> $request->id, 
             'status' => 'CREATED'
         ]);
 
