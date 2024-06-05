@@ -16,6 +16,12 @@ class kompetisiController extends Controller
 
     public function tambah(Request $request)
     {
+        // if (!Auth::check()) {
+        //     return response()->json([
+        //         'message' => 'Login Dulu coy!',
+        //     ], 401);
+        // }
+
         $validator = Validator::make($request->all(), [
             'nama_kompetisi' => 'required',
             'deskripsi' => 'required',

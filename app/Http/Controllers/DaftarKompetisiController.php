@@ -16,6 +16,12 @@ class DaftarKompetisiController extends Controller
 
     public function store(Request $request)
     {
+        // if (!Auth::check()) {
+        //     return response()->json([
+        //         'message' => 'Login Dulu coy!',
+        //     ], 401);
+        // }
+
         $validator = Validator::make($request->all(), [
             'id_kompetisi' => 'required',
             'nama' => 'required',
